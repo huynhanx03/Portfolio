@@ -1,0 +1,88 @@
+{
+    "categories": [
+        {
+            "name": "Programming Languages",
+            "skills": [
+                "Go",
+                "Rust",
+                "Java",
+                "C/C++"
+            ]
+        },
+        {
+            "name": "Frameworks",
+            "skills": [
+                "Gin",
+                "Axum",
+                "Spring Boot"
+            ]
+        },
+        {
+            "name": "Databases",
+            "subcategories": [
+                {
+                    "name": "Relational",
+                    "skills": [
+                        "MySQL",
+                        "PostgreSQL",
+                        "ClickHouse"
+                    ]
+                },
+                {
+                    "name": "NoSQL",
+                    "skills": [
+                        "MongoDB",
+                        "Redis",
+                        "Elasticsearch"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "API Development",
+            "skills": [
+                "RESTful",
+                "gRPC"
+            ]
+        },
+        {
+            "name": "Message Brokers",
+            "skills": [
+                "Kafka"
+            ]
+        },
+        {
+            "name": "Knowledge",
+            "skills": [
+                "OOP",
+                "SOLID Principles",
+                "Design Patterns"
+            ]
+        },
+        {
+            "name": "System Architecture",
+            "skills": [
+                "MVC",
+                "Microservices",
+                "Distributed Systems",
+                "Event-Driven Architecture"
+            ]
+        },
+        {
+            "name": "Tools",
+            "skills": [
+                "Git",
+                "Docker"
+            ]
+        },
+        {
+            "name": "Other",
+            "skills": [
+                "HTML",
+                "CSS",
+                "JSP",
+                "Servlets"
+            ]
+        }
+    ]
+}

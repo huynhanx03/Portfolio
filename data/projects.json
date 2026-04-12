@@ -1,0 +1,356 @@
+{
+    "projects": [
+        {
+            "id": "forge",
+            "name": "Forge",
+            "description": "A high-performance distributed event streaming platform built from scratch, featuring scalable message brokering, low-latency storage, and resilient consensus architecture.",
+            "techStack": [
+                "Rust",
+                "Tokio"
+            ],
+            "role": "Author",
+            "github": "https://github.com/huynhanx03/forge",
+            "demo": null,
+            "image": "/images/projects/forge.png",
+            "category": "personal",
+            "hidden": true
+        },
+        {
+            "id": "ember",
+            "name": "Ember",
+            "description": "An ultra-fast caching engine and feature-rich data structure server built from scratch, optimized for powering real-time data-driven applications with a low-latency and scalable architecture.",
+            "techStack": [
+                "Rust",
+                "Tokio"
+            ],
+            "role": "Author",
+            "github": "https://github.com/huynhanx03/ember",
+            "demo": null,
+            "image": "/images/projects/ember.png",
+            "category": "personal",
+            "hidden": true
+        },
+        {
+            "id": "rust-lab",
+            "name": "Rust Lab",
+            "description": "An advanced laboratory for Rust experiments, high-performance patterns, and architectural concepts. Features deep dives into concurrency, memory safety, and modern Rust idioms.",
+            "techStack": [
+                "Rust"
+            ],
+            "role": "Author",
+            "github": "https://github.com/huynhanx03/rust-lab",
+            "demo": null,
+            "image": "/images/projects/rust-lab.png",
+            "category": "personal",
+            "hidden": true
+        },
+        {
+            "id": "dsa",
+            "name": "Data Structures Algorithms",
+            "description": "Comprehensive collection of DSA implementations and competitive programming solutions. Includes detailed explanations and complexity analysis for each algorithm.",
+            "techStack": [
+                "C++"
+            ],
+            "role": "Author",
+            "github": "https://github.com/huynhanx03/dsa",
+            "demo": null,
+            "image": "/images/projects/dsa.png",
+            "category": "personal"
+        },
+        {
+            "id": "go-common",
+            "name": "Go Common",
+            "description": "Production-ready Go boilerplate with clean architecture, dependency injection, logging, error handling, and common utilities. A solid foundation for building scalable Go applications.",
+            "techStack": [
+                "Go"
+            ],
+            "role": "Author",
+            "github": "https://github.com/huynhanx03/go-common",
+            "demo": null,
+            "image": "/images/projects/go-common.png",
+            "category": "personal"
+        },
+        {
+            "id": "go-demo",
+            "name": "Go Lab",
+            "description": "An advanced laboratory for Go experiments, high-performance patterns, and architectural concepts. Features deep dives into concurrency, distributed systems, and modern Go idioms.",
+            "techStack": [
+                "Go",
+                "MySQL",
+                "Elasticsearch",
+                "Redis",
+                "Kafka",
+                "gRPC"
+            ],
+            "role": "Author",
+            "github": "https://github.com/huynhanx03/go-demo",
+            "demo": null,
+            "image": "/images/projects/go-lab.png",
+            "category": "personal"
+        },
+        {
+            "id": "nexa",
+            "name": "Nexa",
+            "description": "A high-performance, lightweight API gateway built in Go, designed for low-latency request routing, robust rate limiting, and seamless service orchestration in modern microservices architectures.",
+            "techStack": [
+                "Go"
+            ],
+            "role": "Author",
+            "github": "https://github.com/huynhanx03/nexa",
+            "demo": null,
+            "image": "/images/projects/nexa.png",
+            "category": "personal",
+            "hidden": true
+        },
+        {
+            "id": "golink",
+            "name": "GoLink",
+            "description": "A scalable SaaS URL shortener offering analytics, custom aliases, QR code generation, with built-in multi-tenant support for multiple organizations.",
+            "techStack": [
+                "Go",
+                "Envoy",
+                "Gin",
+                "gRPC",
+                "ScyllaDB",
+                "PostgreSQL",
+                "Redis",
+                "Kafka",
+                "Docker"
+            ],
+            "role": "Backend Developer",
+            "github": "https://github.com/huynhanx03/GoLink",
+            "demo": null,
+            "image": "/images/projects/shortlink.png",
+            "category": "personal"
+        },
+        {
+            "id": "judgify",
+            "name": "Judgify",
+            "description": "A robust online judge and technical community platform featuring automated evaluation and an integrated blogging engine for sharing and documenting technical solutions.",
+            "techStack": [
+                "Go",
+                "Gin",
+                "NextJS",
+                "Docker"
+            ],
+            "role": "Author",
+            "github": "https://github.com/huynhanx03/Judgify",
+            "demo": null,
+            "image": "/images/projects/judgify.png",
+            "category": "personal"
+        },
+        {
+            "id": "cdc",
+            "name": "CDC",
+            "description": "A lightweight CDC engine, built for high performance.",
+            "techStack": [
+                "Go",
+                "NATS JetStream",
+                "Docker"
+            ],
+            "role": "Co-Author",
+            "github": "https://github.com/foden303/cdc",
+            "demo": null,
+            "image": "/images/projects/cdc.png",
+            "category": "personal"
+        },
+        {
+            "id": "jobber",
+            "name": "Jobber",
+            "description": "A lightweight job search assistant that aggregates listings, tracks opportunities, and delivers timely notifications.",
+            "techStack": [
+                "Go"
+            ],
+            "role": "Author",
+            "github": "https://github.com/huynhanx03/jobber",
+            "demo": null,
+            "image": "/images/projects/jobber.png",
+            "category": "personal",
+            "hidden": true
+        },
+        {
+            "id": "beacon",
+            "name": "Beacon",
+            "description": "A lightweight reminder and notification assistant.",
+            "techStack": [
+                "Go"
+            ],
+            "role": "Author",
+            "github": "https://github.com/huynhanx03/beacon",
+            "demo": null,
+            "image": "/images/projects/beacon.png",
+            "category": "personal",
+            "hidden": true
+        },
+        {
+            "id": "ants",
+            "name": "ants",
+            "description": "A powerful and reliable goroutine pool for concurrent Go programs.",
+            "techStack": [
+                "Go"
+            ],
+            "role": "Contributor",
+            "github": "https://github.com/panjf2000/ants",
+            "demo": null,
+            "image": "/images/projects/ants.png",
+            "category": "contribution",
+            "pullRequests": [
+                {
+                    "title": "Use UnixNano for worker timestamps",
+                    "url": "https://github.com/panjf2000/ants/pull/382",
+                    "number": "382"
+                }
+            ]
+        },
+        {
+            "id": "kcp-go",
+            "name": "kcp-go",
+            "description": "A crypto-secure Reliable-UDP library for Golang with FEC support.",
+            "techStack": [
+                "Go"
+            ],
+            "role": "Contributor",
+            "github": "https://github.com/xtaci/kcp-go",
+            "demo": null,
+            "image": "/images/projects/kcp-go.png",
+            "category": "contribution",
+            "pullRequests": [
+                {
+                    "title": "Reuse timers in Read/WriteBuffers to reduce allocations",
+                    "url": "https://github.com/xtaci/kcp-go/pull/335",
+                    "number": "335"
+                }
+            ]
+        },
+        {
+            "id": "gocron",
+            "name": "gocron",
+            "description": "Easy and fluent Go cron scheduling.",
+            "techStack": [
+                "Go"
+            ],
+            "role": "Contributor",
+            "github": "https://github.com/go-co-op/gocron",
+            "demo": null,
+            "image": "/images/projects/gocron.png",
+            "category": "contribution",
+            "pullRequests": [
+                {
+                    "title": "Replace string allocation with bytes.Compare in Jobs() UUID sort",
+                    "url": "https://github.com/go-co-op/gocron/pull/914",
+                    "number": "914"
+                },
+                {
+                    "title": "Add ShutdownWithContext and StopJobsWithContext",
+                    "url": "https://github.com/go-co-op/gocron/pull/913",
+                    "number": "913"
+                }
+            ]
+        },
+        {
+            "id": "compress",
+            "name": "compress",
+            "description": "Optimized Go Compression Packages.",
+            "techStack": [
+                "Go"
+            ],
+            "role": "Contributor",
+            "github": "https://github.com/klauspost/compress",
+            "demo": null,
+            "image": "/images/projects/compress.png",
+            "category": "contribution",
+            "pullRequests": [
+                {
+                    "title": "Pool hash tables in Go encode paths to reduce allocations",
+                    "url": "https://github.com/klauspost/compress/pull/1143",
+                    "number": "1143"
+                }
+            ]
+        },
+        {
+            "id": "bleve",
+            "name": "bleve",
+            "description": "A modern text/numeric/geo-spatial/vector indexing library for go.",
+            "techStack": [
+                "Go"
+            ],
+            "role": "Contributor",
+            "github": "https://github.com/blevesearch/bleve",
+            "demo": null,
+            "image": "/images/projects/bleve.png",
+            "category": "contribution",
+            "pullRequests": [
+                {
+                    "title": "Pool queryStringLex to reuse bufio.Reader across query parses",
+                    "url": "https://github.com/blevesearch/bleve/pull/2300",
+                    "number": "2300"
+                }
+            ]
+        },
+        {
+            "id": "xsync",
+            "name": "xsync",
+            "description": "Concurrent data structures for Go.",
+            "techStack": [
+                "Go"
+            ],
+            "role": "Contributor",
+            "github": "https://github.com/puzpuzpuz/xsync",
+            "demo": null,
+            "image": "/images/projects/xsync.png",
+            "category": "contribution",
+            "pullRequests": [
+                {
+                    "title": "Precompute map hot-path fields and emptyRest sentinel",
+                    "url": "https://github.com/puzpuzpuz/xsync/pull/201",
+                    "number": "201"
+                },
+                {
+                    "title": "Use power-of-two capacity to replace modulo with bitwise ops",
+                    "url": "https://github.com/puzpuzpuz/xsync/pull/200",
+                    "number": "200"
+                }
+            ]
+        },
+        {
+            "id": "ristretto",
+            "name": "ristretto",
+            "description": "A high performance memory-bound Go cache.",
+            "techStack": [
+                "Go"
+            ],
+            "role": "Contributor",
+            "github": "https://github.com/dgraph-io/ristretto",
+            "demo": null,
+            "image": "/images/projects/ristretto.png",
+            "category": "contribution",
+            "pullRequests": [
+                {
+                    "title": "Pre-allocate keyCosts map in sampledLFU",
+                    "url": "https://github.com/dgraph-io/ristretto/pull/482",
+                    "number": "482"
+                }
+            ]
+        },
+        {
+            "id": "lura",
+            "name": "lura",
+            "description": "Ultra performant API Gateway with middlewares.",
+            "techStack": [
+                "Go"
+            ],
+            "role": "Contributor",
+            "github": "https://github.com/luraproject/lura",
+            "demo": null,
+            "image": "/images/projects/lura.png",
+            "category": "contribution",
+            "pullRequests": [
+                {
+                    "title": "Optimize request cloning and reduce allocations",
+                    "url": "https://github.com/luraproject/lura/pull/785",
+                    "number": "785"
+                }
+            ]
+        }
+    ]
+}
