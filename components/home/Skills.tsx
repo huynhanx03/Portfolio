@@ -49,9 +49,15 @@ interface SkillIconProps {
     name: string;
 }
 
+interface SimpleIconEntry {
+    hex: string;
+    path: string;
+}
+
 function SkillIcon({ name }: SkillIconProps) {
     const iconKey = skillToIcon[name];
-    const icon = iconKey ? (SimpleIcons as any)[iconKey] : null;
+    const iconMap = SimpleIcons as Record<string, SimpleIconEntry>;
+    const icon = iconKey ? iconMap[iconKey] : null;
 
     if (!icon) {
         return (

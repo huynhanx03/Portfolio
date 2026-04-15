@@ -1,6 +1,3 @@
-'use client';
-
-import { useEffect, useState } from 'react';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
@@ -20,35 +17,11 @@ const CONTRIBUTION_LEVELS: Record<GithubContributionDay['contributionLevel'], st
     'FOURTH_QUARTILE': 'bg-cyan-500',
 };
 
-export default function GitHubActivity() {
-    const [stats, setStats] = useState<GithubStats | null>(null);
-    const [loading, setLoading] = useState(true);
+interface GitHubActivityProps {
+    stats: GithubStats | null;
+}
 
-    useEffect(() => {
-        fetch('/api/github')
-            .then((res) => res.json())
-            .then((data) => {
-                if (!data.error) setStats(data);
-                setLoading(false);
-            })
-            .catch(() => setLoading(false));
-    }, []);
-
-    if (loading) {
-        return (
-            <section className="relative py-20 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50/30 to-cyan-50/20 dark:from-slate-900 dark:via-slate-900/80 dark:to-slate-800/50" />
-                <div className="relative max-w-6xl mx-auto px-6">
-                    <div className="flex items-center gap-4 mb-10">
-                        <div className="h-8 w-64 bg-slate-200 dark:bg-slate-800 rounded animate-pulse" />
-                        <div className="flex-1 h-px bg-slate-200 dark:bg-slate-800 rounded animate-pulse" />
-                        <div className="h-6 w-32 bg-slate-200 dark:bg-slate-800 rounded animate-pulse" />
-                    </div>
-                    <div className="h-[150px] w-full bg-slate-200/50 dark:bg-slate-800/50 rounded-3xl animate-pulse" />
-                </div>
-            </section>
-        );
-    }
+export default function GitHubActivity({ stats }: GitHubActivityProps) {
 
     if (!stats) return null;
 
@@ -80,7 +53,7 @@ export default function GitHubActivity() {
                     <div className="flex gap-[4px] p-2">
                         {stats.contributions.map((week, wIdx) => (
                             <div key={wIdx} className="flex flex-col gap-[4px]">
-                                {week.map((day, dIdx) => (
+                                {week.map((day) => (
                                     <Tooltip key={day.date} delayDuration={0} disableHoverableContent={true}>
                                         <TooltipTrigger asChild>
                                             <div

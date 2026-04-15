@@ -1,79 +1,28 @@
-'use client';
-
-import { useEffect, useState } from 'react';
 import CPProfileCard from '@/components/shared/CPProfileCard';
 import OtherPlatformsCard from '@/components/shared/OtherPlatformsCard';
 import type { CodeforcesStats, LeetCodeStats, OtherPlatform } from '@/lib/types';
 
-interface CPState<T> {
-    data: T | null;
-    isLoading: boolean;
-    error: string | null;
+interface CompetitiveProgrammingProps {
+    codeforces: CodeforcesStats | null;
+    codeforcesError?: string | null;
+    leetcode: LeetCodeStats | null;
+    leetcodeError?: string | null;
+    otherPlatforms: OtherPlatform[];
 }
 
 // Renders the Competitive Programming section with API-powered cards and static platform chips.
-export default function CompetitiveProgramming() {
-    const [codeforces, setCodeforces] = useState<CPState<CodeforcesStats>>({
-        data: null,
-        isLoading: true,
-        error: null,
-    });
-    const [leetcode, setLeetcode] = useState<CPState<LeetCodeStats>>({
-        data: null,
-        isLoading: true,
-        error: null,
-    });
-    const [otherPlatforms, setOtherPlatforms] = useState<OtherPlatform[]>([]);
-
-    useEffect(() => {
-        // Fetch Codeforces stats
-        fetch('/api/codeforces')
-            .then((res) => res.json())
-            .then((data) => {
-                if (data.error) {
-                    setCodeforces({ data: null, isLoading: false, error: data.error });
-                } else {
-                    setCodeforces({ data, isLoading: false, error: null });
-                }
-            })
-            .catch(() => {
-                setCodeforces({ data: null, isLoading: false, error: 'Failed to load' });
-            });
-
-        // Fetch LeetCode stats
-        fetch('/api/leetcode')
-            .then((res) => res.json())
-            .then((data) => {
-                if (data.error) {
-                    setLeetcode({ data: null, isLoading: false, error: data.error });
-                } else {
-                    setLeetcode({ data, isLoading: false, error: null });
-                }
-            })
-            .catch(() => {
-                setLeetcode({ data: null, isLoading: false, error: 'Failed to load' });
-            });
-
-        // Fetch other platforms (static data)
-        fetch('/api/other-platforms')
-            .then((res) => res.json())
-            .then((data) => {
-                if (!data.error) {
-                    setOtherPlatforms(data);
-                }
-            })
-            .catch(() => {
-                // Silently fail for static platforms
-            });
-    }, []);
-
+export default function CompetitiveProgramming({
+    codeforces,
+    codeforcesError,
+    leetcode,
+    leetcodeError,
+    otherPlatforms,
+}: CompetitiveProgrammingProps) {
     // Calculate total problems solved across all platforms
     const totalSolved =
-        (codeforces.data?.problemsSolved || 0) +
-        (leetcode.data?.problemsSolved || 0) +
+        (codeforces?.problemsSolved || 0) +
+        (leetcode?.problemsSolved || 0) +
         otherPlatforms.reduce((sum, platform) => sum + (platform.problemsSolved || 0), 0);
-
-    const totalPlatforms = 2 + otherPlatforms.length;
 
     return (
         <section id="competitive-programming" className="py-20">
@@ -99,28 +48,28 @@ export default function CompetitiveProgramming() {
                     {/* Codeforces Card */}
                     <CPProfileCard
                         platform="codeforces"
-                        username={codeforces.data?.username || 'loading...'}
-                        rating={codeforces.data?.rating}
-                        maxRating={codeforces.data?.maxRating}
-                        rank={codeforces.data?.rank}
-                        maxRank={codeforces.data?.maxRank}
-                        problemsSolved={codeforces.data?.problemsSolved || 0}
-                        profileUrl={codeforces.data?.profileUrl || '#'}
-                        isLoading={codeforces.isLoading}
-                        error={codeforces.error || undefined}
+                        username={codeforces?.username || 'unavailable'}
+                        rating={codeforces?.rating}
+                        maxRating={codeforces?.maxRating}
+                        rank={codeforces?.rank}
+                        maxRank={codeforces?.maxRank}
+                        problemsSolved={codeforces?.problemsSolved || 0}
+                        profileUrl={codeforces?.profileUrl || '#'}
+                        isLoading={false}
+                        error={codeforcesError || undefined}
                     />
 
                     {/* LeetCode Card */}
                     <CPProfileCard
                         platform="leetcode"
-                        username={leetcode.data?.username || 'loading...'}
-                        rating={leetcode.data?.rating}
-                        topPercentage={leetcode.data?.topPercentage}
-                        problemsSolved={leetcode.data?.problemsSolved || 0}
-                        totalProblems={leetcode.data?.totalProblems}
-                        profileUrl={leetcode.data?.profileUrl || '#'}
-                        isLoading={leetcode.isLoading}
-                        error={leetcode.error || undefined}
+                        username={leetcode?.username || 'unavailable'}
+                        rating={leetcode?.rating}
+                        topPercentage={leetcode?.topPercentage}
+                        problemsSolved={leetcode?.problemsSolved || 0}
+                        totalProblems={leetcode?.totalProblems}
+                        profileUrl={leetcode?.profileUrl || '#'}
+                        isLoading={false}
+                        error={leetcodeError || undefined}
                     />
 
                     {/* Other Platforms Card */}

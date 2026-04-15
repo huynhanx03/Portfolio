@@ -3,10 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import { promises as fs } from "fs";
-import path from "path";
-import type { SiteConfig } from "@/lib/types";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { getSiteConfig } from "@/lib/data";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,12 +15,6 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
-
-async function getSiteConfig(): Promise<SiteConfig> {
-  const filePath = path.join(process.cwd(), "data", "site.config.json");
-  const data = await fs.readFile(filePath, "utf-8");
-  return JSON.parse(data);
-}
 
 export async function generateMetadata(): Promise<Metadata> {
   const config = await getSiteConfig();

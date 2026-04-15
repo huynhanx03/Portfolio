@@ -53,8 +53,6 @@ export function getSkillIcon(skillName: string): { svg: string; color: string } 
     if (!iconInfo) return null;
 
     try {
-        // Dynamic import from simple-icons - requires the slug
-        const slug = iconInfo.slug;
         return {
             svg: `<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>${skillName}</title><path d="..." fill="currentColor"/></svg>`,
             color: iconInfo.color

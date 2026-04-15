@@ -10,8 +10,6 @@ interface WakatimeData {
     languages: { name: string; percent: number; totalTime: string; totalSeconds: number }[];
 }
 
-const THEME_COLORS = ['#06b6d4', '#3b82f6', '#8b5cf6', '#f43f5e', '#64748b'];
-
 export default function HackingTime() {
     const [data, setData] = useState<WakatimeData | null>(null);
     const [loading, setLoading] = useState(true);

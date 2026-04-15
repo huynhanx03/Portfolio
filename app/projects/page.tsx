@@ -1,61 +1,67 @@
-import { promises as fs } from "fs";
-import path from "path";
 import type { Metadata } from "next";
+import { unstable_cache } from "next/cache";
 import ProjectCard from "@/components/shared/ProjectCard";
-import type { ProjectsData } from "@/lib/types";
+import { getProjectsData } from "@/lib/data";
 
 export const metadata: Metadata = {
     title: "Projects | Huỳnh Mai Cao Nhân",
     description: "Personal and academic projects showcasing backend development, distributed systems, and software engineering expertise.",
 };
 
-async function getProjects(): Promise<ProjectsData> {
-    const filePath = path.join(process.cwd(), "data", "projects.json");
-    const data = await fs.readFile(filePath, "utf-8");
-    return JSON.parse(data);
-}
+const getRepoStarsCached = unstable_cache(
+    async (owner: string, repo: string): Promise<number | undefined> => {
+        const headers: HeadersInit = {
+            Accept: "application/vnd.github.v3+json",
+        };
+        if (process.env.GITHUB_TOKEN) {
+            headers.Authorization = `token ${process.env.GITHUB_TOKEN}`;
+        }
+
+        const res = await fetch(`https://api.github.com/repos/${owner}/${repo}`, {
+            headers,
+            next: { revalidate: 3600, tags: ["github:repo-stars"] },
+        });
+
+        if (!res.ok) {
+            return undefined;
+        }
+
+        const data = await res.json();
+        return data.stargazers_count;
+    },
+    ["github:repo-stars"],
+    { revalidate: 3600, tags: ["github:repo-stars"] }
+);
 
 async function getStars(repoUrl: string): Promise<number | undefined> {
     const match = repoUrl.match(/github\.com\/([^\/]+)\/([^\/]+)/);
     if (!match) return undefined;
     
     const owner = match[1];
-    const repo = match[2];
-    
-    try {
-        const headers: HeadersInit = {
-            'Accept': 'application/vnd.github.v3+json',
-        };
-        if (process.env.GITHUB_TOKEN) {
-            headers['Authorization'] = `token ${process.env.GITHUB_TOKEN}`;
-        }
+    const repo = match[2].replace(/\.git$/, "");
 
-        const res = await fetch(`https://api.github.com/repos/${owner}/${repo}`, {
-            headers,
-            next: { revalidate: 3600 } // Cache for 1 hour on the server
-        });
-        
-        if (!res.ok) return undefined;
-        
-        const data = await res.json();
-        return data.stargazers_count;
-    } catch (e) {
-        return undefined; // Graceful degradation
+    try {
+        return await getRepoStarsCached(owner, repo);
+    } catch {
+        return undefined;
     }
 }
 
 export default async function ProjectsPage() {
-    const { projects: rawProjects } = await getProjects();
+    const { projects: rawProjects } = await getProjectsData();
 
     // Fetch GitHub stars for projects
     const projects = await Promise.all(rawProjects.map(async (p) => {
         if (p.github) {
             const stars = await getStars(p.github);
             if (stars !== undefined) {
-                p.stars = stars;
+                return {
+                    ...p,
+                    stars,
+                };
             }
         }
-        return p;
+        return { ...p };
     }));
 
     const visibleProjects = projects.filter(p => !p.hidden);

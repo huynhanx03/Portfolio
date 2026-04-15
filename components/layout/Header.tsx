@@ -14,16 +14,19 @@ const navLinks = [
 
 export default function Header() {
     const pathname = usePathname();
-    const [isDark, setIsDark] = useState(true);
+    const [isDark, setIsDark] = useState(() => {
+        if (typeof window === 'undefined') {
+            return true;
+        }
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        return savedTheme === 'dark' || (!savedTheme && prefersDark);
+    });
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     useEffect(() => {
-        const savedTheme = localStorage.getItem('theme');
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const shouldBeDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
-        setIsDark(shouldBeDark);
-        document.documentElement.classList.toggle('dark', shouldBeDark);
-    }, []);
+        document.documentElement.classList.toggle('dark', isDark);
+    }, [isDark]);
 
     const toggleTheme = () => {
         const newIsDark = !isDark;

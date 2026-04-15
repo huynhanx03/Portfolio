@@ -1,22 +1,14 @@
-import { promises as fs } from "fs";
-import path from "path";
 import type { Metadata } from "next";
 import AchievementCard from "@/components/shared/AchievementCard";
-import type { AchievementsData } from "@/lib/types";
+import { getAchievementsData } from "@/lib/data";
 
 export const metadata: Metadata = {
     title: "Achievements | Huỳnh Mai Cao Nhân",
     description: "Professional certifications and awards in software engineering, cloud computing, and competitive programming.",
 };
 
-async function getAchievements(): Promise<AchievementsData> {
-    const filePath = path.join(process.cwd(), "data", "achievements.json");
-    const data = await fs.readFile(filePath, "utf-8");
-    return JSON.parse(data);
-}
-
 export default async function AchievementsPage() {
-    const { achievements } = await getAchievements();
+    const { achievements } = await getAchievementsData();
 
     return (
         <div className="py-20">
