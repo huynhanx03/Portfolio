@@ -301,11 +301,6 @@
             "category": "contribution",
             "pullRequests": [
                 {
-                    "title": "Precompute map hot-path fields and emptyRest sentinel",
-                    "url": "https://github.com/puzpuzpuz/xsync/pull/201",
-                    "number": "201"
-                },
-                {
                     "title": "Use power-of-two capacity to replace modulo with bitwise ops",
                     "url": "https://github.com/puzpuzpuz/xsync/pull/200",
                     "number": "200"
