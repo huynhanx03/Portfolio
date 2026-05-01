@@ -1,7 +1,8 @@
 {
     "name": "Huỳnh Mai Cao Nhân",
     "role": "Software Engineer",
-    "summary": "I am a software engineer driven by a relentless focus on performance and system excellence. Code is my tool; data structures and algorithms are my philosophy. I refine every solution for maximum efficiency, scalability, and resilience. System design is where I build robust, adaptable infrastructures. I don't aim for competence — I strive for mastery, crafting world-class systems with precision and intent.",
+    "avatar": "/images/avatar.png",
+    "summary": "Curious about how systems work under the hood",
     "links": {
         "email": "huynhnhandanang@gmail.com",
         "github": "https://github.com/huynhanx03",

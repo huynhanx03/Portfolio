@@ -3,6 +3,7 @@ export interface SiteConfig {
     name: string;
     role: string;
     summary: string;
+    avatar?: string;
     links: {
         email: string;
         github: string;

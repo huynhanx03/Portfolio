@@ -207,3 +207,77 @@ body {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+/* Avatar glow border — rotating conic gradient creates a spinning neon ring */
+@keyframes rotate-glow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.avatar-glow-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-glow-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    #06b6d4,
+    #3b82f6,
+    #8b5cf6,
+    #06b6d4
+  );
+  animation: rotate-glow 4s linear infinite;
+  z-index: 0;
+}
+
+.avatar-glow-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--background);
+  z-index: 1;
+}
+
+.avatar-glow-wrapper > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Typing cursor blink */
+@keyframes blink-caret {
+  0%, 100% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #06b6d4;
+  }
+}
+
+.typing-cursor {
+  border-right: 3px solid #06b6d4;
+  animation: blink-caret 1s step-end infinite;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .avatar-glow-wrapper::before {
+    animation: none;
+  }
+
+  .typing-cursor {
+    animation: none;
+    border-color: #06b6d4;
+  }
+}
