@@ -183,6 +183,56 @@
             "hidden": true
         },
         {
+            "id": "redis",
+            "name": "redis",
+            "description": "For developers, who are building real-time data-driven applications, Redis is the preferred, fastest, and most feature-rich cache, data structure server, and document and vector query engine.",
+            "techStack": [
+                "C"
+            ],
+            "role": "Contributor",
+            "github": "https://github.com/redis/redis",
+            "demo": null,
+            "image": "/images/projects/redis.png",
+            "category": "contribution",
+            "pullRequests": [
+                {
+                    "title": "redis-cli: free COMMAND reply on malformed legacy help entry",
+                    "url": "https://github.com/redis/redis/pull/15150",
+                    "number": "15150"
+                },
+                {
+                    "title": "Ebuckets: compact ebuckets segments after remove",
+                    "url": "https://github.com/redis/redis/pull/15068",
+                    "number": "15068"
+                }
+            ]
+        },
+        {
+            "id": "sarama",
+            "name": "sarama",
+            "description": "Sarama is a Go library for Apache Kafka.",
+            "techStack": [
+                "Go"
+            ],
+            "role": "Contributor",
+            "github": "https://github.com/IBM/sarama",
+            "demo": null,
+            "image": "/images/projects/sarama.png",
+            "category": "contribution",
+            "pullRequests": [
+                {
+                    "title": "Cache topic batch-size metric lookup",
+                    "url": "https://github.com/IBM/sarama/pull/3498",
+                    "number": "3498"
+                },
+                {
+                    "title": "Retry ListTopics on transient transport errors",
+                    "url": "https://github.com/IBM/sarama/pull/3497",
+                    "number": "3497"
+                }
+            ]
+        },
+        {
             "id": "ants",
             "name": "ants",
             "description": "A powerful and reliable goroutine pool for concurrent Go programs.",
@@ -199,6 +249,126 @@
                     "title": "Use UnixNano for worker timestamps",
                     "url": "https://github.com/panjf2000/ants/pull/382",
                     "number": "382"
+                }
+            ]
+        },
+        {
+            "id": "casbin",
+            "name": "casbin",
+            "description": "Apache Casbin: an authorization library that supports access control models like ACL, RBAC, ABAC.",
+            "techStack": [
+                "Go"
+            ],
+            "role": "Contributor",
+            "github": "https://github.com/apache/casbin",
+            "demo": null,
+            "image": "/images/projects/casbin.png",
+            "category": "contribution",
+            "pullRequests": [
+                {
+                    "title": "Optimize batch policy removal",
+                    "url": "https://github.com/apache/casbin/pull/1729",
+                    "number": "1729"
+                }
+            ]
+        },
+        {
+            "id": "xsync",
+            "name": "xsync",
+            "description": "Concurrent data structures for Go.",
+            "techStack": [
+                "Go"
+            ],
+            "role": "Contributor",
+            "github": "https://github.com/puzpuzpuz/xsync",
+            "demo": null,
+            "image": "/images/projects/xsync.png",
+            "category": "contribution",
+            "pullRequests": [
+                {
+                    "title": "Use power-of-two capacity to replace modulo with bitwise ops",
+                    "url": "https://github.com/puzpuzpuz/xsync/pull/200",
+                    "number": "200"
+                }
+            ]
+        },
+        {
+            "id": "compress",
+            "name": "compress",
+            "description": "Optimized Go Compression Packages.",
+            "techStack": [
+                "Go"
+            ],
+            "role": "Contributor",
+            "github": "https://github.com/klauspost/compress",
+            "demo": null,
+            "image": "/images/projects/compress.png",
+            "category": "contribution",
+            "pullRequests": [
+                {
+                    "title": "Pool hash tables in Go encode paths to reduce allocations",
+                    "url": "https://github.com/klauspost/compress/pull/1143",
+                    "number": "1143"
+                }
+            ]
+        },
+        {
+            "id": "ristretto",
+            "name": "ristretto",
+            "description": "A high performance memory-bound Go cache.",
+            "techStack": [
+                "Go"
+            ],
+            "role": "Contributor",
+            "github": "https://github.com/dgraph-io/ristretto",
+            "demo": null,
+            "image": "/images/projects/ristretto.png",
+            "category": "contribution",
+            "pullRequests": [
+                {
+                    "title": "Pre-allocate keyCosts map in sampledLFU",
+                    "url": "https://github.com/dgraph-io/ristretto/pull/482",
+                    "number": "482"
+                }
+            ]
+        },
+        {
+            "id": "bleve",
+            "name": "bleve",
+            "description": "A modern text/numeric/geo-spatial/vector indexing library for go.",
+            "techStack": [
+                "Go"
+            ],
+            "role": "Contributor",
+            "github": "https://github.com/blevesearch/bleve",
+            "demo": null,
+            "image": "/images/projects/bleve.png",
+            "category": "contribution",
+            "pullRequests": [
+                {
+                    "title": "Pool queryStringLex to reuse bufio.Reader across query parses",
+                    "url": "https://github.com/blevesearch/bleve/pull/2300",
+                    "number": "2300"
+                }
+            ]
+        },
+        {
+            "id": "lura",
+            "name": "lura",
+            "description": "Ultra performant API Gateway with middlewares.",
+            "techStack": [
+                "Go"
+            ],
+            "role": "Contributor",
+            "github": "https://github.com/luraproject/lura",
+            "demo": null,
+            "image": "/images/projects/lura.png",
+            "category": "contribution",
+            "pullRequests": [
+                {
+                    "title": "Optimize request cloning and reduce allocations",
+                    "url": "https://github.com/luraproject/lura/pull/785",
+                    "number": "785"
                 }
             ]
         },
@@ -244,106 +414,6 @@
                     "title": "Add ShutdownWithContext and StopJobsWithContext",
                     "url": "https://github.com/go-co-op/gocron/pull/913",
                     "number": "913"
-                }
-            ]
-        },
-        {
-            "id": "compress",
-            "name": "compress",
-            "description": "Optimized Go Compression Packages.",
-            "techStack": [
-                "Go"
-            ],
-            "role": "Contributor",
-            "github": "https://github.com/klauspost/compress",
-            "demo": null,
-            "image": "/images/projects/compress.png",
-            "category": "contribution",
-            "pullRequests": [
-                {
-                    "title": "Pool hash tables in Go encode paths to reduce allocations",
-                    "url": "https://github.com/klauspost/compress/pull/1143",
-                    "number": "1143"
-                }
-            ]
-        },
-        {
-            "id": "bleve",
-            "name": "bleve",
-            "description": "A modern text/numeric/geo-spatial/vector indexing library for go.",
-            "techStack": [
-                "Go"
-            ],
-            "role": "Contributor",
-            "github": "https://github.com/blevesearch/bleve",
-            "demo": null,
-            "image": "/images/projects/bleve.png",
-            "category": "contribution",
-            "pullRequests": [
-                {
-                    "title": "Pool queryStringLex to reuse bufio.Reader across query parses",
-                    "url": "https://github.com/blevesearch/bleve/pull/2300",
-                    "number": "2300"
-                }
-            ]
-        },
-        {
-            "id": "xsync",
-            "name": "xsync",
-            "description": "Concurrent data structures for Go.",
-            "techStack": [
-                "Go"
-            ],
-            "role": "Contributor",
-            "github": "https://github.com/puzpuzpuz/xsync",
-            "demo": null,
-            "image": "/images/projects/xsync.png",
-            "category": "contribution",
-            "pullRequests": [
-                {
-                    "title": "Use power-of-two capacity to replace modulo with bitwise ops",
-                    "url": "https://github.com/puzpuzpuz/xsync/pull/200",
-                    "number": "200"
-                }
-            ]
-        },
-        {
-            "id": "ristretto",
-            "name": "ristretto",
-            "description": "A high performance memory-bound Go cache.",
-            "techStack": [
-                "Go"
-            ],
-            "role": "Contributor",
-            "github": "https://github.com/dgraph-io/ristretto",
-            "demo": null,
-            "image": "/images/projects/ristretto.png",
-            "category": "contribution",
-            "pullRequests": [
-                {
-                    "title": "Pre-allocate keyCosts map in sampledLFU",
-                    "url": "https://github.com/dgraph-io/ristretto/pull/482",
-                    "number": "482"
-                }
-            ]
-        },
-        {
-            "id": "lura",
-            "name": "lura",
-            "description": "Ultra performant API Gateway with middlewares.",
-            "techStack": [
-                "Go"
-            ],
-            "role": "Contributor",
-            "github": "https://github.com/luraproject/lura",
-            "demo": null,
-            "image": "/images/projects/lura.png",
-            "category": "contribution",
-            "pullRequests": [
-                {
-                    "title": "Optimize request cloning and reduce allocations",
-                    "url": "https://github.com/luraproject/lura/pull/785",
-                    "number": "785"
                 }
             ]
         }
