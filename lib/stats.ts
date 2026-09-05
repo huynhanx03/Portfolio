@@ -1,5 +1,4 @@
 import { unstable_cache } from "next/cache";
-import { formatDuration } from "@/lib/utils";
 import { getCompetitiveData } from "@/lib/data";
 import type {
   CodeforcesStats,
@@ -45,23 +44,6 @@ interface LeetCodeResponse {
       count: number;
     }>;
   };
-}
-
-export interface WakatimeStats {
-  totalTime: string;
-  totalSeconds: number;
-  languages: Array<{
-    name: string;
-    percent: number;
-    totalSeconds: number;
-    totalTime: string;
-  }>;
-}
-
-interface WakatimeLanguageRaw {
-  name: string;
-  percent: number;
-  total_seconds: number;
 }
 
 const LEETCODE_GRAPHQL_URL = "https://leetcode.com/graphql";
@@ -236,41 +218,6 @@ const getOtherPlatformsCached = unstable_cache(
   { revalidate: 86400, tags: ["stats:other-platforms"] }
 );
 
-const getWakatimeStatsCached = unstable_cache(
-  async (): Promise<WakatimeStats> => {
-    const apiKey = process.env.WAKATIME_API_KEY;
-
-    if (!apiKey) {
-      throw new Error("Wakatime API Key not found");
-    }
-
-    const response = await fetch(
-      `https://wakatime.com/api/v1/users/current/stats/last_7_days?api_key=${apiKey}`,
-      { next: { revalidate: 900, tags: ["stats:wakatime"] } }
-    );
-
-    if (!response.ok) {
-      throw new Error("Failed to fetch Wakatime data");
-    }
-
-    const { data } = await response.json();
-    const totalSeconds = data?.total_seconds || 0;
-
-    return {
-      totalTime: formatDuration(totalSeconds),
-      totalSeconds,
-      languages: ((data?.languages || []) as WakatimeLanguageRaw[]).map((lang) => ({
-        name: lang.name,
-        percent: lang.percent,
-        totalSeconds: lang.total_seconds,
-        totalTime: formatDuration(lang.total_seconds),
-      })),
-    };
-  },
-  ["stats:wakatime"],
-  { revalidate: 900, tags: ["stats:wakatime"] }
-);
-
 export async function getGithubStats() {
   return getGithubStatsCached();
 }
@@ -285,8 +232,4 @@ export async function getLeetCodeStats() {
 
 export async function getOtherPlatforms() {
   return getOtherPlatformsCached();
-}
-
-export async function getWakatimeStats() {
-  return getWakatimeStatsCached();
 }
