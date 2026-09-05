@@ -183,6 +183,37 @@
             "hidden": true
         },
         {
+            "id": "rabbitlens",
+            "name": "RabbitLens",
+            "description": "RabbitLens is a modern, operator-friendly replacement UI for RabbitMQ Management, built on the RabbitMQ Management HTTP API.",
+            "techStack": [
+                "Vite",
+                "Docker"
+            ],
+            "role": "Author",
+            "github": "https://github.com/huynhanx03/RabbitLens",
+            "demo": null,
+            "image": "/images/projects/rabbitlens.svg",
+            "category": "personal"
+        },
+        {
+            "id": "pulse",
+            "name": "Pulse",
+            "description": "A modern API workbench for building, testing, debugging, and simulating HTTP & gRPC workflows with advanced auth, datasets, lifecycle controls, and concurrency testing.",
+            "techStack": [
+                "Go",
+                "Gin",
+                "gRPC",
+                "Vite",
+                "Docker"
+            ],
+            "role": "Author",
+            "github": "https://github.com/huynhanx03/Pulse",
+            "demo": null,
+            "image": "/images/projects/pulse.svg",
+            "category": "personal"
+        },
+        {
             "id": "redis",
             "name": "redis",
             "description": "For developers, who are building real-time data-driven applications, Redis is the preferred, fastest, and most feature-rich cache, data structure server, and document and vector query engine.",
@@ -325,6 +356,11 @@
             "image": "/images/projects/ristretto.png",
             "category": "contribution",
             "pullRequests": [
+                {
+                    "title": "Split admission and eviction locks",
+                    "url": "https://github.com/dgraph-io/ristretto/pull/489",
+                    "number": "489"
+                },
                 {
                     "title": "Pre-allocate keyCosts map in sampledLFU",
                     "url": "https://github.com/dgraph-io/ristretto/pull/482",
